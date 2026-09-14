@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEVs — Your Next Career in Code</title>
+    <meta
+      name="description"
+      content="DEVs is a collaboration network for software developers. We find projects, handle contracts, and manage payments so you can focus on writing code."
+    >
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    >
+  </head>
+  <body class="locked">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <!-- loader -->
+    <div class="loader">
+      <span class="loader__tag">DEVS_SYSTEM.BOOT</span>
+      <div class="loader__count"><span id="loaderCount">1</span><small>%</small></div>
+      <div class="loader__bar"><div class="loader__bar-fill" id="loaderBar"></div></div>
+      <span class="loader__status" id="loaderStatus">Initializing system</span>
+    </div>
+
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <!-- nav -->
+    <nav class="nav">
+      <a href="#main" class="nav__brand">
+        <b>DEVs</b>
+        <span>Developer collaboration network</span>
+      </a>
+      <div class="nav__links">
+        <a href="#about">Opportunities</a>
+        <a href="#steps">How it works</a>
+        <a href="#earnings">Earnings</a>
+        <a href="#apply">Join us</a>
+      </div>
+      <a href="#apply" class="nav__cta">Apply to join</a>
+      <button class="nav__burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">Opportunities</a>
+      <a href="#steps">How it works</a>
+      <a href="#earnings">Earnings</a>
+      <a href="#apply" class="nav__cta">Apply to join</a>
+    </div>
+
+    <main id="main">
+      <!-- hero: pinned sentence build-up -->
+      <section class="pin" id="hero">
+        <div class="pin__inner">
+          <div class="wrap">
+            <div class="pin__stage">
+              <p class="pin__line">You write a lot of code.</p>
+              <p class="pin__line">But your income still only reflects the time you put in.</p>
+              <p class="pin__line">DEVs turns your code into a career.</p>
+            </div>
+          </div>
+          <div class="scroll-cue"><span>Scroll down</span><i></i></div>
+        </div>
+      </section>
+
+      <!-- stats -->
+      <section class="stats">
+        <div class="wrap">
+          <div class="stat reveal">
+            <b data-count="620" data-suffix="+">0</b>
+            <span>Verified developers</span>
+          </div>
+          <div class="stat reveal">
+            <b data-count="18.6" data-prefix="$" data-suffix="M+">0</b>
+            <span>Settled earnings in the past 12 months</span>
+          </div>
+          <div class="stat reveal">
+            <b data-count="94" data-suffix="%">0</b>
+            <span>Developers choose to renew</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="pin image-scroll" aria-label="Project gallery">
+        <div class="pin__inner">
+          <div class="wrap">
+            <div class="image-scroll__list">
+              <figure class="image-panel active">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80" alt="Developers collaborating around a table">
+                <figcaption>Team sync</figcaption>
+              </figure>
+              <figure class="image-panel">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Laptop coding on a desk with monitors">
+                <figcaption>Product build</figcaption>
+              </figure>
+              <figure class="image-panel">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Developers discussing a project in a meeting">
+                <figcaption>Client delivery</figcaption>
+              </figure>
+              <figure class="image-panel">
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80" alt="Developer working at a desk with code on screen">
+                <figcaption>Code flow</figcaption>
+              </figure>
+              <figure class="image-panel">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80" alt="Close-up of a laptop and keyboard during development">
+                <figcaption>Remote work</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- about: pinned text + diagram -->
+      <section class="pin pin--split" id="about">
+        <div class="pin__inner">
+          <div class="wrap">
+            <div>
+              <span class="pin__eyebrow">About DEVs</span>
+              <div class="pin__stage">
+                <p class="pin__line">DEVs is not an outsourcing firm or a recruiting agency.</p>
+                <p class="pin__line">DEVs is a system that finds projects and handles contracts and payments, leaving you to write code.</p>
+                <p class="pin__line">You deliver great code. DEVs handles the rest.</p>
+              </div>
+            </div>
+            <div class="diagram-wrap">
+              <div class="process-diagram" role="img" aria-label="DEVs workflow connecting developers, projects, delivery, and payment">
+                <div class="process-node process-node--top">
+                  <strong>Find opportunity</strong>
+                  <span>DEVs sources the right project</span>
+                </div>
+                <i class="process-arrow process-arrow--vertical process-arrow--top" aria-hidden="true"></i>
+                <div class="process-node process-node--left">
+                  <strong>Developer</strong>
+                  <span>Skills and availability</span>
+                </div>
+                <i class="process-arrow process-arrow--horizontal process-arrow--left" aria-hidden="true"></i>
+                <div class="process-node process-node--hub">
+                  <strong>DEVs</strong>
+                  <span>Match · support · settle</span>
+                </div>
+                <i class="process-arrow process-arrow--horizontal process-arrow--right" aria-hidden="true"></i>
+                <div class="process-node process-node--right">
+                  <strong>Client project</strong>
+                  <span>Real work, clearly scoped</span>
+                </div>
+                <i class="process-arrow process-arrow--vertical process-arrow--bottom" aria-hidden="true"></i>
+                <div class="process-node process-node--bottom">
+                  <strong>Get paid</strong>
+                  <span>Reliable payment after delivery</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- benefits -->
+      <section class="benefits">
+        <div class="wrap">
+          <div class="benefits__head reveal">
+            <h2>Why developers choose DEVs</h2>
+            <p class="lede">Focus on writing code while we handle the business details.</p>
+          </div>
+          <div class="benefits__grid">
+            <div class="card card--wide reveal">
+              <div>
+                <h3>Real projects, not template exercises</h3>
+                <p>Work with active products and teams on real client needs, not practice assignments.</p>
+              </div>
+              <div>
+                <h3>Work at your own pace</h3>
+                <p>Choose your projects and schedule. No time clock, no office hours, paid for delivery quality.</p>
+              </div>
+            </div>
+            <div class="card reveal">
+              <h3>Reliable payments</h3>
+              <p>DEVs collects and settles client payments, with funds arriving in as little as three business days.</p>
+            </div>
+            <div class="card reveal">
+              <h3>A path to grow</h3>
+              <p>Higher ratings unlock larger projects and better pay. Long-term collaborators get priority matching.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- how it works -->
+      <section class="steps" id="steps">
+        <div class="wrap">
+          <div class="steps__head reveal">
+            <h2>Join DEVs in four steps</h2>
+            <p class="lede">For most developers, it takes one to two weeks from application to first project.</p>
+          </div>
+          <div class="steps__list">
+            <div class="step reveal">
+              <div class="step__num">01</div>
+              <div class="step__body">
+                <h3>Apply</h3>
+                <p>Share your GitHub, technical strengths, and the projects you have built.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step__num">02</div>
+              <div class="step__body">
+                <h3>Technical review</h3>
+                <p>A code review and conversation based on a real-world scenario, not a standardized exam.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step__num">03</div>
+              <div class="step__body">
+                <h3>Match with a project</h3>
+                <p>We match you with a client project based on your technical focus and availability.</p>
+              </div>
+            </div>
+            <div class="step reveal">
+              <div class="step__num">04</div>
+              <div class="step__body">
+                <h3>Start delivering</h3>
+                <p>Get the brief and start coding. DEVs handles the contract, communication, and payments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- earnings -->
+      <section class="earnings" id="earnings">
+        <div class="wrap earnings__grid">
+          <div class="reveal">
+            <h2>The earnings split is simple</h2>
+            <p class="lede">Developers keep 80% of project fees. DEVs takes a 20% service fee to cover contracts, payment protection, and project matching.</p>
+            <p class="earnings__note">No hidden fees. The split is written into your contract before signing and never changes.</p>
+          </div>
+          <div class="reveal">
+            <div class="split-bar">
+              <div class="split-bar__dev" id="splitBar"></div>
+              <div class="split-bar__fee"></div>
+            </div>
+            <div class="split-legend">
+              <span>Developer 80%</span>
+              <span>Service fee 20%</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- testimonial -->
+      <section class="testimonial">
+        <div class="wrap reveal">
+          <blockquote>"Chasing client payments used to be the worst part of my day. Now I just write code and DEVs handles the rest."</blockquote>
+          Chen Hao, backend developer · 14 months with DEVs
+        </div>
+      </section>
+
+      <!-- final CTA: pinned -->
+      <section class="pin pin--short">
+        <div class="pin__inner">
+          <div class="wrap">
+            <div class="pin__stage">
+              <p class="pin__line">Your next income stream does not have to come from overtime.</p>
+              <p class="pin__line">Apply now and join DEVs.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- apply form -->
+      <section class="apply" id="apply">
+        <div class="wrap">
+          <div class="reveal">
+            <h2>Apply to join</h2>
+            <p class="lede">Share a few details and we will contact you within three business days to arrange a technical review.</p>
+          </div>
+          <div class="apply__grid">
+            <form class="apply-form reveal" id="applyForm">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="field">
+                <label for="stack">Primary tech stack</label>
+                <input type="text" id="stack" name="stack" placeholder="e.g. React / Node.js / Go" required>
+              </div>
+              <div class="field">
+                <label for="link">GitHub or portfolio link (optional)</label>
+                <input type="url" id="link" name="link" placeholder="https://github.com/your-username">
+              </div>
+              <button type="submit" class="submit-btn">Submit application</button>
+            </form>
+            <div class="apply__success" id="applySuccess">
+              <b>Application received</b>
+              <p>We will contact you by email within three business days to arrange the next technical review.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <div>
+          <div class="foot-brand">DEVs</div>
+          <p>A collaboration network for software developers. You write code; we handle the rest.</p>
+        </div>
+        <div>
+          <h4>Quick links</h4>
+          <ul>
+            <li><a href="#about">Opportunities</a></li>
+            <li><a href="#steps">How it works</a></li>
+            <li><a href="#earnings">Earnings</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li>hi@devs.team</li>
+            <li>Monday–Friday 10:00–19:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wrap foot-bottom">
+        <span>© 2026 DEVs. All rights reserved.</span>
+        <span>DEVS_SYSTEM v1.0</span>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
