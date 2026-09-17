@@ -1,6 +1,69 @@
       (() => {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+        /* ================= cursor black hole ================= */
+        const blackHole = document.querySelector('.black-hole');
+        const distortionTargets = Array.from(document.querySelectorAll('h1, h2, h3, p, a, button, blockquote, span, b, strong, label, li, figcaption'))
+          .filter((element, index, elements) => elements.indexOf(element) === index);
+        let holePointer = { x: 0, y: 0 };
+        let holeFrame = 0;
+
+        function clearDistortion(element) {
+          element.classList.remove('hole-distorted');
+          element.style.removeProperty('--hole-dx');
+          element.style.removeProperty('--hole-dy');
+          element.style.removeProperty('--hole-rotate');
+          element.style.removeProperty('--hole-scale');
+          element.style.removeProperty('--hole-blur');
+        }
+
+        function updateBlackHole() {
+          holeFrame = 0;
+          if (!blackHole) return;
+          const radius = 260;
+          blackHole.style.setProperty('--hole-x', holePointer.x + 'px');
+          blackHole.style.setProperty('--hole-y', holePointer.y + 'px');
+
+          distortionTargets.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            if (!rect.width || !rect.height) return;
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const offsetX = holePointer.x - centerX;
+            const offsetY = holePointer.y - centerY;
+            const distance = Math.hypot(offsetX, offsetY);
+            if (distance > radius) {
+              if (element.classList.contains('hole-distorted')) clearDistortion(element);
+              return;
+            }
+
+            const influence = Math.pow(1 - distance / radius, 2);
+            const tangentX = -offsetY * influence * 0.1;
+            const tangentY = offsetX * influence * 0.1;
+            const inwardX = offsetX * influence * 0.16;
+            const inwardY = offsetY * influence * 0.16;
+            element.style.setProperty('--hole-dx', (inwardX + tangentX).toFixed(1) + 'px');
+            element.style.setProperty('--hole-dy', (inwardY + tangentY).toFixed(1) + 'px');
+            element.style.setProperty('--hole-rotate', (influence * (offsetX < 0 ? -11 : 11)).toFixed(2) + 'deg');
+            element.style.setProperty('--hole-scale', (1 + influence * 0.12).toFixed(3));
+            element.style.setProperty('--hole-blur', (influence * 0.45).toFixed(2) + 'px');
+            element.classList.add('hole-distorted');
+          });
+        }
+
+        if (blackHole) {
+          window.addEventListener('pointermove', event => {
+            if (event.pointerType === 'touch') return;
+            holePointer = { x: event.clientX, y: event.clientY };
+            blackHole.classList.add('is-active');
+            if (!holeFrame) holeFrame = requestAnimationFrame(updateBlackHole);
+          }, { passive: true });
+          window.addEventListener('pointerleave', () => {
+            blackHole.classList.remove('is-active');
+            distortionTargets.forEach(clearDistortion);
+          });
+        }
+
         /* ================= loader ================= */
         const loaderEl = document.querySelector('.loader');
         const countEl = document.getElementById('loaderCount');

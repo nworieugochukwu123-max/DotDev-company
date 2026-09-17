@@ -108,6 +108,100 @@
         -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
       }
 
+      /* ---------- cursor black hole ---------- */
+      .black-hole {
+        --hole-x: 50vw;
+        --hole-y: 50vh;
+        position: fixed;
+        inset: 0;
+        z-index: 800;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+      }
+
+      .black-hole.is-active {
+        opacity: 1;
+      }
+
+      .black-hole__lens,
+      .black-hole__ring,
+      .black-hole__core {
+        position: absolute;
+        left: var(--hole-x);
+        top: var(--hole-y);
+        transform: translate(-50%, -50%);
+      }
+
+      .black-hole__lens {
+        width: 12rem;
+        height: 12rem;
+        border-radius: 50%;
+        background: transparent;
+        filter: blur(0.25px) contrast(1.15);
+        backdrop-filter: blur(1px) contrast(1.1);
+      }
+
+      .black-hole__core {
+        display: none;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: #05060a;
+        box-shadow: none;
+      }
+
+      .black-hole__ring {
+        display: none;
+        border: 1px solid rgba(20, 22, 31, 0.8);
+        border-radius: 50%;
+        border-left-color: var(--signal);
+        border-right-color: var(--circuit);
+        animation: blackHoleOrbit 1.8s linear infinite;
+      }
+
+      .black-hole__ring--one {
+        width: 5.5rem;
+        height: 2.7rem;
+        transform: translate(-50%, -50%) rotate(-18deg);
+      }
+
+      .black-hole__ring--two {
+        width: 9rem;
+        height: 4.2rem;
+        opacity: 0.72;
+        animation-duration: 2.8s;
+        animation-direction: reverse;
+        transform: translate(-50%, -50%) rotate(24deg);
+      }
+
+      .black-hole__ring--three {
+        width: 13rem;
+        height: 6rem;
+        opacity: 0.42;
+        animation-duration: 3.8s;
+        transform: translate(-50%, -50%) rotate(-34deg);
+      }
+
+      .hole-distorted {
+        translate: var(--hole-dx) var(--hole-dy);
+        rotate: var(--hole-rotate);
+        scale: var(--hole-scale);
+        filter: blur(var(--hole-blur));
+        transition: translate 0.08s linear, rotate 0.08s linear, scale 0.08s linear, filter 0.08s linear;
+      }
+
+      @keyframes blackHoleOrbit {
+        from { rotate: 0deg; }
+        to { rotate: 360deg; }
+      }
+
+      @media (pointer: coarse), (prefers-reduced-motion: reduce) {
+        .black-hole {
+          display: none;
+        }
+      }
+
       /* ---------- loader ---------- */
       .loader {
         position: fixed;
